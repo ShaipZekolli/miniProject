@@ -1,3 +1,1 @@
 # miniProject
-
-Testing git

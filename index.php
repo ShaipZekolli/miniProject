@@ -51,7 +51,7 @@ if(!isset($_SESSION['usernameID'])) {
 									<td><?php echo "<span class = 'error'>$errorGen</span>";?></td>
 								</tr>
 								<tr>
-									<td align="center"><input type = "submit"  class="cbtn" value="Login"</td>
+									<td align="center"><input type = "submit"  class="cbtn" value="Login"></td>
 								</tr>
 							</form>
 						</table>

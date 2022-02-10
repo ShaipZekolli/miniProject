@@ -56,6 +56,13 @@ else {
 	if($login) {
 		$_SESSION['usernameID'] = $username;
 		
+		$query3 = "SELECT roli FROM users WHERE Username = '$username';";
+		$query3Res = mysqli_query($connect, $query3);
+		$query3Row = mysqli_fetch_array($query3Res);
+		$roli = $query3Row['roli'];
+		
+		$_SESSION['roli'] = $roli;
+		
 		header("Location: logedin.php");
 	}
 }

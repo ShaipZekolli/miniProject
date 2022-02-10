@@ -11,8 +11,6 @@ body {
 	
 }
 
-
-
 .wrapper {
 		width: 20em;
 		margin: 0 auto;
@@ -150,6 +148,7 @@ border-radius:6px;
 border: 1px solid #846a29;
 color:black;
 box-shadow: 20px 20px 90px;
+display:none;
 }
 /* Form */
 
@@ -180,6 +179,14 @@ box-shadow: 20px 20px 90px;
 		form select:focus,
 		form textarea:focus {
 			background: #f8f8f8;
+		}
+		form input[type="text"]:hover,
+		form input[type="email"]:hover,
+		
+		form input[type="password"]:hover,
+		form select:hover,
+		form textarea:hover {
+			background: lightgrey;
 		}
 
 	form input[type="text"],

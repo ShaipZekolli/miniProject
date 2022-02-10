@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2022 at 04:08 PM
+-- Generation Time: Feb 10, 2022 at 02:32 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -25,20 +25,41 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `roli`
+--
+
+CREATE TABLE `roli` (
+  `id` int(11) NOT NULL,
+  `pershkrimi` char(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `roli`
+--
+
+INSERT INTO `roli` (`id`, `pershkrimi`) VALUES
+(1, 'Administrator'),
+(2, 'User');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `Username` varchar(30) NOT NULL,
-  `Fjalekalimi` varchar(32) DEFAULT NULL
+  `Fjalekalimi` varchar(32) DEFAULT NULL,
+  `roli` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Username`, `Fjalekalimi`) VALUES
-('admin', '202cb962ac59075b964b07152d234b70');
+INSERT INTO `users` (`Username`, `Fjalekalimi`, `roli`) VALUES
+('admin', '0192023a7bbd73250516f069df18b500', 1),
+('user', '6ad14ba9986e3615423dfca256d04e3f', 2);
 
 -- --------------------------------------------------------
 
@@ -62,18 +83,25 @@ CREATE TABLE `user_details` (
 
 INSERT INTO `user_details` (`id`, `Username`, `emri`, `mbiemri`, `phone`, `address`, `image`) VALUES
 (7, 'user1', 'User1Emri', 'User1Mbiemri', 49111111, 'Rr. 12 Shembull', 'sample (1).png'),
-(8, 'user2', 'User2Emri', 'User2Mbiemri', 49222222, 'Rr. 421 Shembull', 'squiggle.png'),
-(9, 'user3', 'User3Emri', 'User3Mbiemri', 44333333, 'Rr. 132 Shembull', 'random.png');
+(8, 'user2', 'User2Emri', 'User2Mbiemri', 49222222, 'Rr. 421 Shembull', 'die.png'),
+(10, 'user', 'TestUser', 'UserMbiemri', 49400400, 'Rr. 421 Shembull', 'random.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `roli`
+--
+ALTER TABLE `roli`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`Username`);
+  ADD PRIMARY KEY (`Username`),
+  ADD KEY `roli` (`roli`);
 
 --
 -- Indexes for table `user_details`
@@ -90,7 +118,17 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`roli`) REFERENCES `roli` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

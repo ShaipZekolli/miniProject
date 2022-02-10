@@ -11,6 +11,7 @@ if(isset($_SESSION['usernameID'])) {
 		<title>CRUD Users</title>
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 		<link rel="shortcut icon" type="image/x-icon" href="style/login.png">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
 		<body style="background-color:#f1f1f1;">
 			<div style="margin-top:0px;background-color: gray;">

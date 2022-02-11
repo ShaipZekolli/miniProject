@@ -11,6 +11,8 @@ if(isset($_SESSION['usernameID'])) {
 		<title>CRUD Users</title>
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 		<link rel="shortcut icon" type="image/x-icon" href="style/login.png">
+		<meta http-equiv=”refresh” content=”5" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
 		<body style="background-color:#f1f1f1;">
@@ -85,13 +87,13 @@ if(isset($_SESSION['usernameID'])) {
 															</br><h2 style="color:#5f6368;">Shtoni një User</h2>
 															<?php include "php_functions/shtoUser.php" ?>
 														<div style="padding:6%">
-															<form action="php_functions/shtoUser.php" method="POST"  enctype="multipart/form-data">
+															<form action="php_functions/shtoUser.php" method="POST"  enctype="multipart/form-data" name="form"  onsubmit="return validate()">
 															
-															<input type="text" required name="username" value="<?php echo $username;?>" placeholder="Username">&nbsp;</br>
-															<input type="text" required name="emri" value="<?php echo $emri;?>" placeholder="Emri">&nbsp;
-															<input type="text" required name="mbiemri" value="<?php echo $mbiemri;?>" placeholder="Mbiemri">&nbsp;</br>
-														    <input type="text"  name="phone" value="<?php echo $phone;?>" placeholder="NumriTelefonit">&nbsp;
-															<input type="text"  name="address" value="<?php echo $address;?>" placeholder="Street">&nbsp;</br>
+															<span id="usernamev"></span><input type="text" required name="username" value="<?php echo $username;?>" placeholder="Username">&nbsp;</br>
+															<span id="emriv"></span><input type="text" required name="emri" value="<?php echo $emri;?>" placeholder="Emri">&nbsp;
+															<span id="mbiemriv"></span><input type="text" required name="mbiemri" value="<?php echo $mbiemri;?>" placeholder="Mbiemri">&nbsp;</br>
+														    <span id="numloc"></span><input type="text"  name="phone" value="<?php echo $phone;?>" placeholder="NumriTelefonit">&nbsp;
+															<span id="addressv"></span><input type="text"  name="address" value="<?php echo $address;?>" placeholder="Street">&nbsp;</br>
 															<input type="file" required placeholder="Image to Upload:" name="fileToUpload" id="fileToUpload" value="<?php echo $image;?>">&nbsp;</br>
 															<input type="hidden"  name="path" value="<?php echo $image;?>">&nbsp;</br>
 															<input type="hidden"  name="id" value="<?php echo $id;?>">
@@ -131,6 +133,7 @@ if(isset($_SESSION['usernameID'])) {
 		}
 		
 	</script>
+	<script src="valid.js"></script>
 	<script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
 </html>
 
@@ -142,6 +145,8 @@ if(isset($_SESSION['usernameID'])) {
 		<title>My Profile</title>
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 		<link rel="shortcut icon" type="image/x-icon" href="style/login.png">
+		<meta http-equiv=”refresh” content=”5" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 		<body style="background-color:#f1f1f1;">
 			<div style="margin-top:0px;background-color: gray;">
@@ -217,13 +222,13 @@ if(isset($_SESSION['usernameID'])) {
 															</br><h2 style="color:#5f6368;">Edit</h2>
 															<?php include "php_functions/shtoUser.php" ?>
 														<div style="padding:6%">
-															<form action="php_functions/shtoUser.php" method="POST"  enctype="multipart/form-data">
+															<form action="php_functions/shtoUser.php" method="POST"  enctype="multipart/form-data" name="form"  onsubmit="return validate()"  >
 															
 															<input style="background-color:lightgrey;" type="text" required readonly name="username" value="<?php echo $username;?>" placeholder="Username">&nbsp;</br>
-															<input type="text" required name="emri" value="<?php echo $emri;?>" placeholder="Emri">&nbsp;
-															<input type="text" required name="mbiemri" value="<?php echo $mbiemri;?>" placeholder="Mbiemri">&nbsp;</br>
-														    <input type="text"  name="phone" value="<?php echo $phone;?>" placeholder="NumriTelefonit">&nbsp;
-															<input type="text"  name="address" value="<?php echo $address;?>" placeholder="Street">&nbsp;</br>
+															<span id="emriv"></span><input type="text" required name="emri" value="<?php echo $emri;?>" placeholder="Emri">&nbsp;
+															<span id="mbiemriv"></span><input type="text" required name="mbiemri" value="<?php echo $mbiemri;?>" placeholder="Mbiemri">&nbsp;</br>
+														    <span id="numloc"></span><input type="text"  name="phone" value="<?php echo $phone;?>" placeholder="NumriTelefonit">&nbsp;
+															<span id="addressv"></span><input type="text"  name="address" value="<?php echo $address;?>" placeholder="Street">&nbsp;</br>
 															<input type="file" required placeholder="Image to Upload:" name="fileToUpload" id="fileToUpload" value="<?php echo $image;?>">&nbsp;</br>
 															<input type="hidden"  name="path" value="<?php echo $image;?>">&nbsp;</br>
 															<input type="hidden"  name="id" value="<?php echo $id;?>">
@@ -263,6 +268,7 @@ if(isset($_SESSION['usernameID'])) {
 		}
 		
 	</script>
+	<script src="valid.js"></script>
 	<script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
 </html>
 <?php

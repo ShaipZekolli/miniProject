@@ -10,6 +10,9 @@ body {
 	text-shadow: 0 0 1px black;
 	
 }
+span {
+	color:red;
+}
 
 .wrapper {
 		width: 20em;
